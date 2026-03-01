@@ -3,7 +3,7 @@ import React, { memo, useState, useEffect } from 'react'
 const App = memo(() => {
   const [count, setCount] = useState(0)
 
-
+  // 可模拟原来的生命周期函数，但更加强大
   useEffect(() => {
     console.log('组件渲染了 监听 事件 初始化工作')
     return () => {
