@@ -1,6 +1,6 @@
 import React, { memo, useState, useCallback, useRef } from 'react'
 
-// props发生改变组件进行重新渲染
+// props发生改变组件进行重新渲染 一般子组件也要用memo包裹
 const Home = memo((props) => {
   const { add } = props
   console.log('子组件');
