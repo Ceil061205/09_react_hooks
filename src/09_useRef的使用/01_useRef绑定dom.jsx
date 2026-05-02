@@ -1,22 +1,19 @@
-import React, { memo, useEffect, useRef } from 'react'
+import React, { memo, useRef } from 'react'
 
 const App = memo(() => {
-  const titleRef = useRef()
+  const Ref = useRef()
   const inputRef = useRef()
-
-  function showRef() {
-    console.log(titleRef.current);
-    inputRef.current.focus();
+  function showTitleDom() {
+    console.log(Ref.current, inputRef.current)
+    inputRef.current.focus()
   }
-
   return (
     <div>
-      <h2 ref={titleRef}>useRef的使用</h2>
-      <input type='text' ref={inputRef} />
-      <button onClick={showRef}>查看</button>
+      <h2 ref={Ref}>hello</h2>
+      <input type="text" ref={inputRef} />
+      <button onClick={showTitleDom}>查看title</button>
     </div>
   )
 })
-
 
 export default App
