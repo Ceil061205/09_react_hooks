@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { useLocalStorage } from './hooks'
 
 const App = memo(() => {
-  const [token, setToken] = useLocalStorage()
+  const [token, setToken] = useLocalStorage("token")
 
   function handleSetToken() {
     setToken('your-token')
