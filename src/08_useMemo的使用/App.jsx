@@ -18,6 +18,13 @@ const App = memo(() => {
     return calcNum(60)
   }, [])
 
+  const info = useMemo(() => {
+    return {
+      name: 'xyz',
+      age: 10,
+    }
+  }, [])
+
   return (
     <div>
       <h2>加算结果{result}</h2>
