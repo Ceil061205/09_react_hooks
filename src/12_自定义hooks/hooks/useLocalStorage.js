@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-function useLocalStorage() {
-  const [token, setToken] = useState(localStorage.getItem('token') || '');
+function useLocalStorage(key) {
+  // 兼容基本数据类型存储，兼容复杂数据类型存储（对象、数组）
+  const [data, setData] = useState(() => {
+    const item = localStorage.getItem(key);
+    if (!item) return '';
+    return JSON.parse(item);
+  });
 
   useEffect(() => {
-    localStorage.setItem('token', token)
-  }, [token])
+    localStorage.setItem(key, JSON.stringify(data));
+  }, [key, data]);
 
-  return [token, setToken]
+  return [data, setData]
 }
 
 export default useLocalStorage
