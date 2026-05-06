@@ -13,7 +13,11 @@ import ReactDOM from 'react-dom/client';
 // import App from './10_useImperativeHandle/App';
 // import App from './11_useLayoutEffect/App';
 import { UserContext, TokenContext } from './12_自定义hooks/context'
-import App from './12_自定义hooks/App';
+// import App from './12_自定义hooks/App';
+
+import { Provider } from 'react-redux'
+import store from './13_redux中的hooks/store'
+import App from './13_redux中的hooks/App';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,7 +28,9 @@ root.render(
   <UserContext.Provider value={{name: 'xyz'}}>
     {/* <ThemeContext.Provider value={{age: 10}}> */}
     <TokenContext.Provider value={'abc'}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </TokenContext.Provider>
   </UserContext.Provider>
 );
