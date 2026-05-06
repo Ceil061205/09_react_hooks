@@ -10,7 +10,8 @@ const Test = memo((props) => {
 
 const Home = memo((props) => {
   // useSelector会监听整个state
-  const { message } = useSelector((state) => ({ message: state.counter.message }), shallowEqual)
+  // const { message } = useSelector((state) => ({ message: state.counter.message }), shallowEqual)
+  const message = useSelector((state) => state.counter.message)
   console.log('222');
   const dispatch = useDispatch()
 
@@ -29,7 +30,10 @@ const Home = memo((props) => {
 
 const App = memo((props) => {
   // shallowEqual浅比较,如果组件中用到的对象的属性值没有改变,就不会重新渲染组件,如果对象的属性值改变了,就会重新渲染组件
-  const { count } = useSelector((state) => ({ count: state.counter.count }), shallowEqual)
+  // const { count } = useSelector((state) => ({ count: state.counter.count }), shallowEqual)
+
+  // 按需取值也不会重新渲染组件,只有当组件中用到的值发生改变时才会重新渲染组件
+  const count = useSelector((state) => state.counter.count)
   const dispatch = useDispatch()
   function handleAdd(num, isAdd = true) {
     if (isAdd) {
